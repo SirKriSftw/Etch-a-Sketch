@@ -12,6 +12,10 @@ document.addEventListener("keypress", (e) => {
   {
     resetGrid();
   }
+  else if (e.code == "KeyO")
+  {
+    opacityFlag = !opacityFlag;
+  }
   else if (e.code == "KeyR")
   {
     redFlag = !redFlag;
@@ -53,8 +57,6 @@ function getNewDimension()
     dimension = prompt("What new dimensions would you like? (1 - 100)");
   }while(dimension <= 0 || dimension > MAX_DIMENSION || isNaN(dimension));
 
-  useOpacity();
-
   return dimension;
 }
 
@@ -94,6 +96,10 @@ function plotHovered(e)
     let newOpacity = +e.target.style.opacity + 0.1;
     e.target.style.opacity = newOpacity;
   }
+  else
+  {
+    e.target.style.opacity = 1;
+  }
 
   if (redFlag)
   {
@@ -110,25 +116,6 @@ function plotHovered(e)
   else
   {
     e.target.style.backgroundColor = "black";
-  }
-}
-
-function useOpacity()
-{
-  let input = "";
-  do
-  {
-    input = prompt("Would like to use opacity? (y/n)");
-  }while(input != "y" && input != "n");
-
-  if (input == "y")
-  {
-    opacityFlag = true;
-  }
-
-  else
-  {
-    opacityFlag = false;
   }
 }
 
