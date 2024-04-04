@@ -1,18 +1,34 @@
 const container = document.querySelector(".container");
-const DIMENSION = 16
+let dimension = 16
+const MAX_DIMENSION = 100;
 
+// Checks for user pressing "r" to reset grid
 document.addEventListener("keypress", (e) => {
   if(e.code == "KeyR")
   {
-    console.log("Reset");
+    resetGrid();
   }
 })
 
+// Resets grid upon "r" being pressed
+function resetGrid()
+{
+    getNewDimension();
+}
+
+function getNewDimension()
+{
+  do
+  {
+    dimension = prompt("What new dimensions would you like? (1 - 100)");
+  }while(dimension <= 0 || dimension > MAX_DIMENSION);
+  return dimension;
+}
 
 // Sets up DIMENSION x DIMENSION grid
 function makeGrid()
 {
-  for(let i = 0; i < DIMENSION * DIMENSION; i++)
+  for(let i = 0; i < dimension * dimension; i++)
   {
     makePlot();
   }
@@ -22,7 +38,7 @@ function makeGrid()
 function makePlot()
 {
   const gridPlot = document.createElement("div");
-  const sides = 100 / DIMENSION;
+  const sides = 100 / dimension;
   gridPlot.style.width = sides + "%";
   gridPlot.style.height = sides + "vh";
   gridPlot.style.border = "1px solid rgb(161, 164, 190)";
