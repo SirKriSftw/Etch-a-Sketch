@@ -21,7 +21,7 @@ function getNewDimension()
   do
   {
     dimension = prompt("What new dimensions would you like? (1 - 100)");
-  }while(dimension <= 0 || dimension > MAX_DIMENSION);
+  }while(dimension <= 0 || dimension > MAX_DIMENSION || isNaN(dimension));
   return dimension;
 }
 
