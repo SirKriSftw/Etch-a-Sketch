@@ -1,5 +1,5 @@
 const container = document.querySelector(".container");
-let dimension = 16
+const DEFAULT_DIMENSION = 16;
 const MAX_DIMENSION = 100;
 
 // Checks for user pressing "r" to reset grid
@@ -13,29 +13,32 @@ document.addEventListener("keypress", (e) => {
 // Resets grid upon "r" being pressed
 function resetGrid()
 {
-    getNewDimension();
+    let dimension = getNewDimension();
+
 }
 
 function getNewDimension()
 {
+  let dimension = 0;
   do
   {
     dimension = prompt("What new dimensions would you like? (1 - 100)");
   }while(dimension <= 0 || dimension > MAX_DIMENSION || isNaN(dimension));
+
   return dimension;
 }
 
-// Sets up DIMENSION x DIMENSION grid
-function makeGrid()
+// Sets up dimension x dimension grid
+function makeGrid(dimension)
 {
   for(let i = 0; i < dimension * dimension; i++)
   {
-    makePlot();
+    makePlot(dimension);
   }
 }
 
 // Makes a single plot of grid
-function makePlot()
+function makePlot(dimension)
 {
   const gridPlot = document.createElement("div");
   const sides = 100 / dimension;
@@ -56,4 +59,4 @@ function plotHovered(e)
   e.target.style.backgroundColor = "black";
 }
 
-makeGrid();
+makeGrid(DEFAULT_DIMENSION);
