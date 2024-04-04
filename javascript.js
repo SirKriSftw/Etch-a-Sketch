@@ -1,12 +1,34 @@
 const DEFAULT_DIMENSION = 16;
 const MAX_DIMENSION = 100;
 let opacityFlag = true;
+let redFlag = false;
+let blueFlag = false;
+let greenFlag = false;
 
-// Checks for user pressing "r" to reset grid
+
+// Checks for user pressing "n" to reset grid OR RGB for colors
 document.addEventListener("keypress", (e) => {
-  if(e.code == "KeyR")
+  if(e.code == "KeyN")
   {
     resetGrid();
+  }
+  else if (e.code == "KeyR")
+  {
+    redFlag = !redFlag;
+    blueFlag = false;
+    greenFlag = false;
+  }
+  else if (e.code == "KeyG")
+  {
+    greenFlag = !greenFlag;
+    blueFlag = false;
+    redFlag = false;
+  }
+  else if (e.code == "KeyB")
+  {
+    blueFlag = !blueFlag;
+    redFlag = false;
+    greenFlag = false;
   }
 })
 
@@ -54,8 +76,8 @@ function makePlot(dimension)
   gridPlot.style.width = sides + "%";
   gridPlot.style.height = sides + "vh";
   gridPlot.style.border = "1px solid rgb(161, 164, 190)";
-  gridPlot.style.backgroundColor = "rgb(180, 164, 161)";
-  gridPlot.style.opacity = 1;
+  gridPlot.style.backgroundColor = "black";
+  gridPlot.style.opacity = 0;
   gridPlot.classList.add("plot");
 
   gridPlot.addEventListener("mouseenter", (event) => {
@@ -69,13 +91,26 @@ function plotHovered(e)
 {
   if(opacityFlag)
   {
-    e.target.style.opacity = e.target.style.opacity - 0.1;
+    let newOpacity = +e.target.style.opacity + 0.1;
+    e.target.style.opacity = newOpacity;
+  }
+
+  if (redFlag)
+  {
+      e.target.style.backgroundColor = "red";
+  }
+  else if (blueFlag)
+  {
+    e.target.style.backgroundColor = "blue";
+  }
+  else if (greenFlag)
+  {
+    e.target.style.backgroundColor = "green";
   }
   else
   {
     e.target.style.backgroundColor = "black";
   }
-
 }
 
 function useOpacity()
