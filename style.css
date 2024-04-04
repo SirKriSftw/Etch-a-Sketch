@@ -14,3 +14,10 @@
 
   background-color: rgb(180, 164, 161);
 }
+
+.plot
+{
+  border : 2px solid rgb(161, 164, 190);
+  background-color: "black";
+  opacity: 0;
+}

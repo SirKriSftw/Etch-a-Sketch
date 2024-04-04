@@ -77,9 +77,6 @@ function makePlot(dimension)
   const sides = 100 / dimension;
   gridPlot.style.width = sides + "%";
   gridPlot.style.height = sides + "vh";
-  gridPlot.style.border = "1px solid rgb(161, 164, 190)";
-  gridPlot.style.backgroundColor = "black";
-  gridPlot.style.opacity = 0;
   gridPlot.classList.add("plot");
 
   gridPlot.addEventListener("mouseenter", (event) => {
