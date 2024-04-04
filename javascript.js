@@ -1,6 +1,6 @@
 const DEFAULT_DIMENSION = 16;
 const MAX_DIMENSION = 100;
-let opacityFlag = true;
+let opacityFlag = false;
 let redFlag = false;
 let blueFlag = false;
 let greenFlag = false;
