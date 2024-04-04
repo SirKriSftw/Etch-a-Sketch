@@ -36,7 +36,7 @@ document.addEventListener("keypress", (e) => {
   }
 })
 
-// Resets grid upon "r" being pressed
+// Resets grid upon "n" being pressed
 function resetGrid()
 {
     let dimension = getNewDimension();
