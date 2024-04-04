@@ -117,3 +117,4 @@ function plotHovered(e)
 }
 
 makeGrid(DEFAULT_DIMENSION);
+alert("Press n to reset grid, o to toggle opacity, and r g or b to change colors!");
