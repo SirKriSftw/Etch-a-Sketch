@@ -6,3 +6,4 @@ Pressing the "r" will turn the plots red, "g" will turn them green and "b" turns
 You can also decide if you want to use opacity by pressing the "o" key. When option is selected you must pass over the grid plot 10 times for it to be fully colored.
 
 To run just simply download all files and open the index.html file and have fun! :D
+Or go to https://sirkrisftw.github.io/Etch-a-Sketch/ for a live demo
