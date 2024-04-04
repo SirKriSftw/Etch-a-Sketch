@@ -1,5 +1,6 @@
 const DEFAULT_DIMENSION = 16;
 const MAX_DIMENSION = 100;
+let opacityFlag = true;
 
 // Checks for user pressing "r" to reset grid
 document.addEventListener("keypress", (e) => {
@@ -30,6 +31,8 @@ function getNewDimension()
     dimension = prompt("What new dimensions would you like? (1 - 100)");
   }while(dimension <= 0 || dimension > MAX_DIMENSION || isNaN(dimension));
 
+  useOpacity();
+
   return dimension;
 }
 
@@ -52,6 +55,7 @@ function makePlot(dimension)
   gridPlot.style.height = sides + "vh";
   gridPlot.style.border = "1px solid rgb(161, 164, 190)";
   gridPlot.style.backgroundColor = "rgb(180, 164, 161)";
+  gridPlot.style.opacity = 1;
   gridPlot.classList.add("plot");
 
   gridPlot.addEventListener("mouseenter", (event) => {
@@ -63,7 +67,34 @@ function makePlot(dimension)
 
 function plotHovered(e)
 {
-  e.target.style.backgroundColor = "black";
+  if(opacityFlag)
+  {
+    e.target.style.opacity = e.target.style.opacity - 0.1;
+  }
+  else
+  {
+    e.target.style.backgroundColor = "black";
+  }
+
+}
+
+function useOpacity()
+{
+  let input = "";
+  do
+  {
+    input = prompt("Would like to use opacity? (y/n)");
+  }while(input != "y" && input != "n");
+
+  if (input == "y")
+  {
+    opacityFlag = true;
+  }
+
+  else
+  {
+    opacityFlag = false;
+  }
 }
 
 makeGrid(DEFAULT_DIMENSION);
