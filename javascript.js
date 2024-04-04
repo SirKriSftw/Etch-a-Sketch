@@ -1,6 +1,14 @@
 const container = document.querySelector(".container");
 const DIMENSION = 16
 
+document.addEventListener("keypress", (e) => {
+  if(e.code == "KeyR")
+  {
+    console.log("Reset");
+  }
+})
+
+
 // Sets up DIMENSION x DIMENSION grid
 function makeGrid()
 {
