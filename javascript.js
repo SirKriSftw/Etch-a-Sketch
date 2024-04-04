@@ -1,9 +1,10 @@
 const container = document.querySelector(".container");
+const DIMENSION = 16
 
-// Sets up 16x16 grid
+// Sets up DIMENSION x DIMENSION grid
 function makeGrid()
 {
-  for(let i = 0; i < 16*16; i++)
+  for(let i = 0; i < DIMENSION * DIMENSION; i++)
   {
     makePlot();
   }
@@ -12,8 +13,9 @@ function makeGrid()
 function makePlot()
 {
   const gridPlot = document.createElement("div");
-  gridPlot.style.width = "6.25%";
-  gridPlot.style.height = "100vh / 16";
+  const sides = 100 / DIMENSION;
+  gridPlot.style.width = sides + "%";
+  gridPlot.style.height = sides + "vh";
   gridPlot.style.border = "1px solid black";
   container.appendChild(gridPlot);
 }
