@@ -4,6 +4,8 @@ let opacityFlag = false;
 let redFlag = false;
 let blueFlag = false;
 let greenFlag = false;
+let pinkFlag = false;
+let purpleFlag = false;
 
 
 // Checks for user pressing "n" to reset grid OR RGB for colors
@@ -21,18 +23,40 @@ document.addEventListener("keypress", (e) => {
     redFlag = !redFlag;
     blueFlag = false;
     greenFlag = false;
+    pinkFlag = false;
+    purpleFlag = false;
   }
   else if (e.code == "KeyG")
   {
     greenFlag = !greenFlag;
     blueFlag = false;
     redFlag = false;
+    pinkFlag = false;
+    purpleFlag = false;
   }
   else if (e.code == "KeyB")
   {
     blueFlag = !blueFlag;
     redFlag = false;
     greenFlag = false;
+    pinkFlag = false;
+    purpleFlag = false;
+  }
+  else if (e.code == "KeyP" && !e.shiftKey)
+  {
+    blueFlag = false;
+    redFlag = false;
+    greenFlag = false;
+    pinkFlag = !pinkFlag;
+    purpleFlag = false;
+  }
+  else if (e.code == "KeyP" && e.shiftKey)
+  {
+    blueFlag = false;
+    redFlag = false;
+    greenFlag = false;
+    pinkFlag = false;
+    purpleFlag = !purpleFlag;
   }
 })
 
@@ -109,6 +133,14 @@ function plotHovered(e)
   else if (greenFlag)
   {
     e.target.style.backgroundColor = "green";
+  }
+  else if (pinkFlag)
+  {
+    e.target.style.backgroundColor = "pink";
+  }
+  else if (purpleFlag)
+  {
+    e.target.style.backgroundColor = "purple";
   }
   else
   {
